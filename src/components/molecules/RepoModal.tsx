@@ -99,6 +99,7 @@ export const RepoModal = ({
           <button
             onClick={onClose}
             className="p-2 hover:bg-gray-200 rounded-full transition"
+            aria-label="Close modal"
           >
             <FaTimes size={20} />
           </button>
