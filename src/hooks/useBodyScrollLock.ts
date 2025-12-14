@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 export const useBodyScrollLock = (isLocked: boolean) => {
-  const originalOverflow = useRef<string | undefined>();
+  const originalOverflow = useRef<string | undefined>(undefined);
 
   useEffect(() => {
     if (isLocked) {
