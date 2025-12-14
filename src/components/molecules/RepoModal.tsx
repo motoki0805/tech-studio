@@ -89,6 +89,9 @@ export const RepoModal = ({
     >
       <div
         className="bg-white w-full max-w-4xl max-h-[85vh] rounded-xl flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Repository details"
         onClick={(e) => e.stopPropagation()}
       >
         {/* ヘッダー */}
@@ -99,6 +102,7 @@ export const RepoModal = ({
           <button
             onClick={onClose}
             className="p-2 hover:bg-gray-200 rounded-full transition"
+            aria-label="Close modal"
           >
             <FaTimes size={20} />
           </button>
