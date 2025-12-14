@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Header } from "../organisms/Header";
-import { SkillsSection } from "../organisms/SkillsSection";
-import { WorksSection } from "../organisms/WorkSection";
+import { SkillsSection } from "../organisms/Sections/SkillsSection";
+import { PortfolioSection } from "../organisms/Sections/PortfolioSection";
 
 export const HomeTemplate = () => {
   return (
@@ -36,35 +36,9 @@ export const HomeTemplate = () => {
           </div>
         </section>
 
-        <section
-          id="about"
-          className="min-h-screen py-24 px-4 sm:px-6 lg:px-8 bg-white"
-        >
-          <div className="mx-auto max-w-7xl">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-8 border-b pb-4">
-              About
-            </h2>
-            <p className="text-lg text-gray-600">自己紹介欄</p>
-          </div>
-        </section>
-
         <SkillsSection />
 
-        <WorksSection />
-
-        <section
-          id="contact"
-          className="min-h-[50vh] py-24 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white"
-        >
-          <div className="mx-auto max-w-7xl">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-8 border-b border-gray-700 pb-4">
-              Contact
-            </h2>
-            <p className="text-lg text-gray-300">
-              お仕事のご依頼やご相談はこちらから。
-            </p>
-          </div>
-        </section>
+        <PortfolioSection />
       </main>
     </>
   );
