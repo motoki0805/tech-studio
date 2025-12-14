@@ -18,16 +18,22 @@ export const PortfolioSection = async () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {repos.map((repo) => (
-            <RepoCard
-              key={repo.id}
-              repo={repo}
-              owner={owner}
-              languageColor={getLanguageColor(repo.language)}
-              currentSiteRepoName={currentSiteRepoName}
-            />
-          ))}
-        </div>
+        {repos.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {repos.map((repo) => (
+              <RepoCard
+                key={repo.id}
+                repo={repo}
+                owner={owner}
+                languageColor={getLanguageColor(repo.language)}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center text-gray-500 py-12">
+            No repositories available to display.
+          </div>
+        )}
 
         <div className="mt-12 text-center">
           <Link
