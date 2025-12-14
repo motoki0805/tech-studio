@@ -15,13 +15,19 @@ type RepoProps = {
   repo: Repository;
   owner: string;
   languageColor: string;
+  currentSiteRepoName: string;
 };
 
-export const RepoCard = ({ repo, owner, languageColor }: RepoProps) => {
+export const RepoCard = ({
+  repo,
+  owner,
+  languageColor,
+  currentSiteRepoName,
+}: RepoProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // このリポジトリが現在のサイトか判定
-  const isCurrentSite = repo.name === "tech-studio";
+  const isCurrentSite = repo.name === currentSiteRepoName;
 
   return (
     <>

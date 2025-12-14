@@ -6,6 +6,7 @@ import { getRepos, getLanguageColor } from "@/lib/github";
 export const PortfolioSection = async () => {
   const repos = await getRepos();
   const owner = process.env.GITHUB_USERNAME || "";
+  const currentSiteRepoName = process.env.GITHUB_CURRENT_REPO_NAME || "";
 
   return (
     <section id="portfolio" className="py-20 bg-gray-50">
@@ -23,6 +24,7 @@ export const PortfolioSection = async () => {
               repo={repo}
               owner={owner}
               languageColor={getLanguageColor(repo.language)}
+              currentSiteRepoName={currentSiteRepoName}
             />
           ))}
         </div>
