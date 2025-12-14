@@ -8,6 +8,13 @@ export async function fetchReadme(repoName: string): Promise<string> {
     console.error("GitHub credentials are missing on server.");
     return "";
   }
+  // リポジトリ名の形式をチェック
+  // 英数字、ハイフン、アンダースコア、ピリオドのみ許可
+  const repoNamePattern = /^[a-zA-Z0-9_.-]+$/;
+  if (!repoName || !repoNamePattern.test(repoName)) {
+    console.warn(`Invalid repository name format provided: ${repoName}`);
+    return "";
+  }
 
   try {
     const res = await fetch(
