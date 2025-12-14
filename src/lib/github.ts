@@ -27,9 +27,11 @@ export async function getRepos(): Promise<Repository[]> {
   const username = process.env.GITHUB_USERNAME;
   const token = process.env.GITHUB_TOKEN;
 
-  // 表示から除外したいリポジトリ名（環境変数 GITHUB_IGNORE_REPOS でカンマ区切り指定可能）
+  // 表示から除外したいリポジトリ名
   const ignoreList = process.env.GITHUB_IGNORE_REPOS
-    ? process.env.GITHUB_IGNORE_REPOS.split(",").map((s) => s.trim()).filter(Boolean)
+    ? process.env.GITHUB_IGNORE_REPOS.split(",")
+        .map((s) => s.trim())
+        .filter(Boolean)
     : [];
 
   if (!username || !token) {
