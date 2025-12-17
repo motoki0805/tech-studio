@@ -26,12 +26,6 @@ export const HomeTemplate = () => {
               >
                 実績を見る
               </Link>
-              <Link
-                href="#contact"
-                className="rounded-md bg-white px-6 py-3 text-blue-600 font-semibold shadow ring-1 ring-blue-600 hover:bg-blue-50 transition"
-              >
-                お問い合わせ
-              </Link>
             </div>
           </div>
         </section>
