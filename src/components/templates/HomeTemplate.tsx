@@ -4,7 +4,7 @@ import { AboutSection } from "../organisms/Sections/AboutSection";
 import { SkillsSection } from "../organisms/Sections/SkillsSection";
 import { PortfolioSection } from "../organisms/Sections/PortfolioSection";
 import { Footer } from "../organisms/Footer";
-import { WorksSection } from "../organisms/Sections/WorkSection";
+import { WorkSection } from "../organisms/Sections/WorkSection";
 
 export const HomeTemplate = () => {
   return (
@@ -14,7 +14,7 @@ export const HomeTemplate = () => {
         <FirstViewSection />
         <AboutSection />
         <SkillsSection />
-        <WorksSection />
+        <WorkSection />
         <PortfolioSection />
       </main>
       <Footer />
