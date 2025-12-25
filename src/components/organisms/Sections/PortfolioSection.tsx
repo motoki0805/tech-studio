@@ -11,7 +11,7 @@ export const PortfolioSection = async () => {
   return (
     <section id="portfolio" className="py-24 bg-[#faf7f5]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* セクションタイトル*/}
+        {/* セクションタイトル */}
         <div className="mb-16 text-center md:text-left">
           <h2 className="text-3xl font-bold tracking-tight text-[#4a3f35] sm:text-4xl relative inline-block">
             Portfolio
