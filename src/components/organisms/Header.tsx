@@ -67,7 +67,7 @@ export const Header = () => {
             />
           </div>
           <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 leading-none pt-1">
-            Tech Studio
+            テック工房
           </span>
         </Link>
 
