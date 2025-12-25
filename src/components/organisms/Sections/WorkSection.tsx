@@ -1,17 +1,52 @@
-export const WorksSection = () => {
+import { SectionContainer } from "../../atoms/SectionContainer";
+import { InfoCard } from "../../molecules/InfoCard";
+import { WORKS_DATA } from "../../../constants/works";
+
+export const WorkSection = () => {
   return (
-    <section
-      id="works"
-      className="min-h-screen py-24 px-4 sm:px-6 lg:px-8 bg-white"
-    >
-      <div className="mx-auto max-w-7xl">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-8 border-b pb-4">
-          Works
-        </h2>
-        <p className="text-lg text-gray-600">
-          制作実績やGitHubのリポジトリへのリンクをカード形式で配置
-        </p>
+    <SectionContainer id="works" title="Works">
+      <div className="grid grid-cols-1 gap-8">
+        {WORKS_DATA.map((work) => (
+          <InfoCard key={work.id} title={work.title} className="w-full">
+            <div className="space-y-4">
+              <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-bold tracking-wider">
+                <div className="flex items-center text-[#b17a5c]">
+                  <span className="mr-2 opacity-50">Period:</span>
+                  {work.period}
+                </div>
+                <div className="flex items-center text-[#8c7e71]">
+                  <span className="mr-2 opacity-50">Role:</span>
+                  {work.role}
+                </div>
+                <div className="flex items-center text-[#4a3f35]">
+                  <span className="mr-2 opacity-50">Stack:</span>
+                  {work.tech}
+                </div>
+              </div>
+
+              <div className="text-[#5c534a] space-y-4 leading-relaxed border-t border-[#f5efeb] pt-4">
+                <div className="space-y-3">{work.description}</div>
+
+                {work.highlights && work.highlights.length > 0 && (
+                  <div className="mt-4 pt-4 border-t border-dashed border-[#f5efeb]">
+                    <p className="text-[10px] font-extrabold tracking-[0.2em] text-[#8c7e71] mb-2">
+                      Key Achievements
+                    </p>
+                    <ul className="list-none space-y-1">
+                      {work.highlights.map((item) => (
+                        <li key={item} className="text-sm flex items-start">
+                          <span className="mr-2 text-[#b17a5c]">・</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          </InfoCard>
+        ))}
       </div>
-    </section>
+    </SectionContainer>
   );
 };
