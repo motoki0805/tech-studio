@@ -18,6 +18,7 @@ import {
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 import { FaAws } from "react-icons/fa";
+import { SectionContainer } from "../../atoms/SectionContainer";
 
 export const SkillsSection = () => {
   const skills = [
@@ -38,7 +39,7 @@ export const SkillsSection = () => {
         {
           name: "Next.js",
           icon: SiNextdotjs,
-          color: "text-black dark:text-white",
+          color: "text-gray-800 dark:text-white",
         },
         { name: "Vue.js", icon: SiVuedotjs, color: "text-green-500" },
         { name: "Node.js", icon: SiNodedotjs, color: "text-green-600" },
@@ -65,42 +66,33 @@ export const SkillsSection = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-gray-50">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-12 text-center">
-          Skills
-        </h2>
-
-        <div className="space-y-16">
-          {skills.map((category, index) => (
-            <div key={index} className="space-y-6">
-              {/* カテゴリー見出し */}
-              <h3 className="text-xl font-semibold text-gray-700 border-b border-gray-200 pb-2">
-                {category.category}
-              </h3>
-
-              {/* アイコンリスト */}
-              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8">
-                {category.items.map((skill) => (
+    <SectionContainer id="skills" title="Skills">
+      <div className="space-y-16">
+        {skills.map((category, index) => (
+          <div key={index} className="space-y-8">
+            <h3 className="text-xl font-bold text-[#4a3f35] border-b border-[#e5ded8] pb-3 text-left">
+              {category.category}
+            </h3>
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8">
+              {category.items.map((skill) => (
+                <div
+                  key={skill.name}
+                  className="flex flex-col items-center gap-3 group"
+                >
                   <div
-                    key={skill.name}
-                    className="flex flex-col items-center gap-3 group"
+                    className={`text-5xl transition-transform duration-300 group-hover:scale-110 ${skill.color}`}
                   >
-                    <div
-                      className={`text-5xl transition-transform duration-300 group-hover:scale-110 ${skill.color}`}
-                    >
-                      <skill.icon />
-                    </div>
-                    <span className="text-sm font-medium text-gray-600">
-                      {skill.name}
-                    </span>
+                    <skill.icon />
                   </div>
-                ))}
-              </div>
+                  <span className="text-sm font-bold text-[#5c534a]">
+                    {skill.name}
+                  </span>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-    </section>
+    </SectionContainer>
   );
 };
