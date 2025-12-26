@@ -18,7 +18,7 @@ export const MaintenanceTemplate = () => {
 
         <div className="pt-8 border-t border-gray-200">
           <p className="font-semibold text-sm text-gray-500">
-            テック工房 / Tech Studio
+            {process.env.NEXT_PUBLIC_SITE_NAME_JA || "テック工房"} | {process.env.NEXT_PUBLIC_SITE_NAME_EN || "Tech Studio"}
           </p>
         </div>
       </div>
