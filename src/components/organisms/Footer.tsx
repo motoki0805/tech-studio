@@ -3,7 +3,7 @@ export const Footer = () => {
     <footer className="bg-[#f5efeb] border-t border-[#e5ded8] py-8">
       <div className="mx-auto max-w-7xl px-4 flex justify-center items-center">
         <p className="text-[10px] sm:text-xs text-[#8c8279] tracking-widest text-center font-medium">
-          &copy; {new Date().getFullYear()} Nanashima Tech Studio. All rights
+          &copy; {new Date().getFullYear()} {process.env.NEXT_PUBLIC_SITE_NAME_EN || "Tech Studio"}. All rights
           reserved.
         </p>
       </div>

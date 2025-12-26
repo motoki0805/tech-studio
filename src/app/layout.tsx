@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "テック工房 / Tech Studio",
+  title: `${process.env.NEXT_PUBLIC_SITE_NAME_JA || "テック工房"} | ${process.env.NEXT_PUBLIC_SITE_NAME_EN || "Tech Studio"}`,
   description: "Webシステム開発・DX支援",
   icons: {
     icon: "/logo.png",
