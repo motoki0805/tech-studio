@@ -1,12 +1,11 @@
 import { SectionContainer } from "../../atoms/SectionContainer";
-import { skills } from "@/data/skills";
+import { SKILLS } from "@/data/skills";
 
 export const SkillsSection = () => {
-
   return (
     <SectionContainer id="skills" title="Skills">
       <div className="space-y-16">
-        {skills.map((category, index) => (
+        {SKILLS.map((category, index) => (
           <div key={index} className="space-y-8">
             <h3 className="text-xl font-bold text-[#4a3f35] border-b border-[#e5ded8] pb-3 text-left">
               {category.category}

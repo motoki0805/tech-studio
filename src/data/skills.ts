@@ -20,7 +20,7 @@ import { VscVscode } from "react-icons/vsc";
 import { FaAws } from "react-icons/fa";
 import { SkillCategory } from "@/types/skill";
 
-export const skills: SkillCategory[] = [
+export const SKILLS: SkillCategory[] = [
   {
     category: "Programming Languages",
     items: [
