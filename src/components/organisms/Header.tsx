@@ -78,7 +78,7 @@ export const Header = () => {
 
             return (
               <Link
-                key={item.name}
+                key={item.id}
                 href={item.href}
                 className={`text-sm font-medium transition-colors relative group/link ${
                   isActive
@@ -115,7 +115,7 @@ export const Header = () => {
               const isActive = activeSection === item.href.substring(1);
               return (
                 <Link
-                  key={item.name}
+                  key={item.id}
                   href={item.href}
                   onClick={handleLinkClick}
                   className={`py-4 px-4 text-lg font-medium border-b border-gray-50 last:border-none transition-colors ${

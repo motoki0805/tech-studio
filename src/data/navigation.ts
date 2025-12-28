@@ -1,9 +1,9 @@
 import { NavItem } from "@/types/ui";
 
 export const NAV_ITEMS: NavItem[] = [
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Works", href: "#works" },
-  { name: "Portfolio", href: "#portfolio" },
-  //   { name: "Contact", href: "#contact" }, // Contactセクション追加後に復活
+  { id: 1, name: "About", href: "#about" },
+  { id: 2, name: "Skills", href: "#skills" },
+  { id: 3, name: "Works", href: "#works" },
+  { id: 4, name: "Portfolio", href: "#portfolio" },
+  //   { id: 5, name: "Contact", href: "#contact" }, // Contactセクション追加後に復活
 ];

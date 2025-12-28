@@ -5,15 +5,15 @@ export const SkillsSection = () => {
   return (
     <SectionContainer id="skills" title="Skills">
       <div className="space-y-16">
-        {SKILLS.map((category, index) => (
-          <div key={index} className="space-y-8">
+        {SKILLS.map((category) => (
+          <div key={category.category} className="space-y-8">
             <h3 className="text-xl font-bold text-[#4a3f35] border-b border-[#e5ded8] pb-3 text-left">
               {category.category}
             </h3>
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8">
               {category.items.map((skill) => (
                 <div
-                  key={skill.name}
+                  key={skill.id}
                   className="flex flex-col items-center gap-3 group"
                 >
                   <div
