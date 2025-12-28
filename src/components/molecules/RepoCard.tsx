@@ -34,7 +34,7 @@ export const RepoCard = ({
       <button
         onClick={() => setIsOpen(true)}
         className={
-          "relative flex flex-col h-full backdrop-blur-sm rounded-2xl p-6 shadow-sm border transition-all duration-300 hover:shadow-lg hover:-translate-y-1 text-left w-full group bg-white/50 border-gray-100 hover:bg-white"
+          "relative flex flex-col h-full backdrop-blur-sm rounded-2xl p-6 shadow-sm border transition-all duration-300 hover:shadow-lg hover:-translate-y-1 text-left w-full group bg-white border-gray-100 hover:bg-white"
         }
         type="button"
         aria-label={`View details for ${repo.name} repository`}
