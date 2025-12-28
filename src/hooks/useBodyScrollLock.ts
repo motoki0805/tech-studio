@@ -1,30 +1,28 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 export const useBodyScrollLock = (isLocked: boolean) => {
-  const originalOverflow = useRef<string | undefined>(undefined);
-
   useEffect(() => {
-    if (isLocked) {
-      // Store the original overflow value only the first time we lock
-      if (originalOverflow.current === undefined) {
-        originalOverflow.current = document.body.style.overflow;
-      }
-      document.body.style.overflow = "hidden";
-    } else {
-      // Restore the original overflow value
-      if (originalOverflow.current !== undefined) {
-        document.body.style.overflow = originalOverflow.current;
-        originalOverflow.current = undefined;
-      }
+    if (!isLocked) {
+      return;
     }
+
+    const originalOverflow = window.getComputedStyle(document.body).overflow;
+    const originalPaddingRight =
+      window.getComputedStyle(document.body).paddingRight;
+
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+
+    document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = `${
+      parseFloat(originalPaddingRight || "0") + scrollbarWidth
+    }px`;
+
     return () => {
-      // Restore the original overflow value on cleanup
-      if (originalOverflow.current !== undefined) {
-        document.body.style.overflow = originalOverflow.current;
-        originalOverflow.current = undefined;
-      }
+      document.body.style.overflow = originalOverflow;
+      document.body.style.paddingRight = originalPaddingRight;
     };
   }, [isLocked]);
 };

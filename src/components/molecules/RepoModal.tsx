@@ -88,7 +88,9 @@ export const RepoModal = ({
       onClick={onClose}
     >
       <div
-        className="bg-white w-full max-w-4xl max-h-[85vh] rounded-xl flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200"
+        className={`bg-white w-full max-w-4xl rounded-xl flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200 ${
+          isLoading ? "h-[85vh]" : "max-h-[85vh]"
+        }`}
         role="dialog"
         aria-modal="true"
         aria-label="Repository details"
@@ -109,15 +111,15 @@ export const RepoModal = ({
         </div>
 
         {/* コンテンツ */}
-        <div className="flex-1 overflow-y-auto p-6 md:p-8 bg-white">
+        <div className="flex-1 flex flex-col overflow-y-auto p-6 md:p-8 bg-white min-h-0">
           {isLoading ? (
-            <div className="flex flex-col items-center justify-center h-40 gap-4 text-gray-500">
+            <div className="flex-1 flex flex-col items-center justify-center gap-4 text-gray-500">
               <FaSpinner className="animate-spin text-3xl" />
               <p>Loading README...</p>
             </div>
           ) : (
             <article
-              className="prose prose-sm sm:prose lg:prose-lg max-w-none prose-img:rounded-lg prose-a:text-blue-600 prose-table:border-collapse prose-th:border prose-th:border-gray-300 prose-th:p-2 prose-td:border prose-td:border-gray-300 prose-td:p-2
+              className="prose prose-sm sm:prose lg:prose-lg max-w-none w-full prose-img:rounded-lg prose-a:text-blue-600 prose-table:border-collapse prose-th:border prose-th:border-gray-300 prose-th:p-2 prose-td:border prose-td:border-gray-300 prose-td:p-2
                 [&_:not(pre)>code::before]:content-none
                 [&_:not(pre)>code::after]:content-none
                 [&_:not(pre)>code]:bg-gray-100
@@ -126,6 +128,7 @@ export const RepoModal = ({
                 [&_:not(pre)>code]:py-0.5
                 [&_:not(pre)>code]:rounded-md
                 [&_:not(pre)>code]:font-normal"
+              style={{ maxWidth: 'none' }}
             >
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
