@@ -88,7 +88,7 @@ export const RepoModal = ({
       onClick={onClose}
     >
       <div
-        className="bg-white w-full max-w-4xl max-h-[85vh] rounded-xl flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200"
+        className="bg-white w-full max-w-4xl h-[85vh] rounded-xl flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200"
         role="dialog"
         aria-modal="true"
         aria-label="Repository details"
@@ -109,9 +109,9 @@ export const RepoModal = ({
         </div>
 
         {/* コンテンツ */}
-        <div className="flex-1 overflow-y-auto p-6 md:p-8 bg-white">
+        <div className="flex-1 flex flex-col overflow-y-auto p-6 md:p-8 bg-white">
           {isLoading ? (
-            <div className="flex flex-col items-center justify-center h-40 gap-4 text-gray-500">
+            <div className="flex-1 flex flex-col items-center justify-center gap-4 text-gray-500">
               <FaSpinner className="animate-spin text-3xl" />
               <p>Loading README...</p>
             </div>
