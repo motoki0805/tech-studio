@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 const notoSansJp = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
   weight: ["400", "700"],
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   display: "swap",
 });
 
@@ -41,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${notoSansJp.className} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${notoSansJp.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {isMaintenance ? <MaintenanceTemplate /> : children}
       </body>
