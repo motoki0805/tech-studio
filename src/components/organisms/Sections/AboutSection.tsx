@@ -2,19 +2,9 @@ import Image from "next/image";
 import { SectionContainer } from "../../atoms/SectionContainer";
 import { InfoCard } from "../../molecules/InfoCard";
 import { profile } from "@/data/profile";
+import { calculateAge } from "@/lib/date";
 
 export const AboutSection = () => {
-  const calculateAge = (birthDate: string): number => {
-    const birth = new Date(birthDate);
-    const today = new Date();
-    let age = today.getFullYear() - birth.getFullYear();
-    const m = today.getMonth() - birth.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
-      age--;
-    }
-    return age;
-  };
-
   const age = calculateAge(profile.birthDate);
 
   return (
@@ -66,8 +56,8 @@ export const AboutSection = () => {
           </div>
 
           <div className="text-[#5c534a] space-y-4 leading-relaxed text-left">
-            {profile.introduction.map((text, index) => (
-              <p key={index}>{text}</p>
+            {profile.introduction.map((item) => (
+              <p key={item.id}>{item.text}</p>
             ))}
           </div>
         </div>
@@ -79,8 +69,8 @@ export const AboutSection = () => {
             <p className="font-bold text-[#4a3f35] text-lg">
               {profile.hobby.title}
             </p>
-            {profile.hobby.description.map((text, index) => (
-              <p key={index}>{text}</p>
+            {profile.hobby.description.map((item) => (
+              <p key={item.id}>{item.text}</p>
             ))}
           </div>
         </InfoCard>
@@ -90,8 +80,8 @@ export const AboutSection = () => {
             <p className="font-bold text-[#4a3f35] text-lg">
               {profile.qualityPolicy.title}
             </p>
-            {profile.qualityPolicy.description.map((text, index) => (
-              <p key={index}>{text}</p>
+            {profile.qualityPolicy.description.map((item) => (
+              <p key={item.id}>{item.text}</p>
             ))}
           </div>
         </InfoCard>
