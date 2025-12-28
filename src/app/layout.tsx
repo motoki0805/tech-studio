@@ -21,10 +21,40 @@ const notoSansJp = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: `${process.env.NEXT_PUBLIC_SITE_NAME_JA || "テック工房"} | ${
-    process.env.NEXT_PUBLIC_SITE_NAME_EN || "Tech Studio"
-  }`,
-  description: "Webシステム開発・DX支援",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+  ),
+  title: {
+    default: `${process.env.NEXT_PUBLIC_SITE_NAME_JA || "テック工房"} | ${
+      process.env.NEXT_PUBLIC_SITE_NAME_EN || "Tech Studio"
+    }`,
+    template: `%s | ${process.env.NEXT_PUBLIC_SITE_NAME_JA || "テック工房"}`,
+  },
+  description:
+    "愛知を拠点に活動するフリーランスエンジニア。Webシステム開発、業務改善、DX支援など、技術でビジネスの課題を解決します。",
+  openGraph: {
+    title: `${process.env.NEXT_PUBLIC_SITE_NAME_JA || "テック工房"} | ${
+      process.env.NEXT_PUBLIC_SITE_NAME_EN || "Tech Studio"
+    }`,
+    description:
+      "愛知を拠点に活動するフリーランスエンジニア。Webシステム開発、業務改善、DX支援など、技術でビジネスの課題を解決します。",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+    siteName: process.env.NEXT_PUBLIC_SITE_NAME_JA || "テック工房",
+    locale: "ja_JP",
+    type: "website",
+    images: "/og-image.png",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${process.env.NEXT_PUBLIC_SITE_NAME_JA || "テック工房"} | ${
+      process.env.NEXT_PUBLIC_SITE_NAME_EN || "Tech Studio"
+    }`,
+    description:
+      "愛知を拠点に活動するフリーランスエンジニア。Webシステム開発、業務改善、DX支援など、技術でビジネスの課題を解決します。",
+    site: process.env.NEXT_PUBLIC_TWITTER_SITE,
+    creator: process.env.NEXT_PUBLIC_TWITTER_CREATOR,
+    images: "/og-image.png",
+  },
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
