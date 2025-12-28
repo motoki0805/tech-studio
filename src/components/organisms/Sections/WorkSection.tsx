@@ -14,7 +14,7 @@ export const WorkSection = () => {
                   <span className="mr-2 opacity-50">Period:</span>
                   {work.period}
                 </div>
-                <div className="flex items-center text-[#8c7e71]">
+                <div className="flex items-center text-[#4a3f35]">
                   <span className="mr-2 opacity-50">Role:</span>
                   {work.role}
                 </div>

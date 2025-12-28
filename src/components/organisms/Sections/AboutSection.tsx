@@ -41,28 +41,28 @@ export const AboutSection = () => {
             <h3 className="text-2xl sm:text-3xl font-bold text-[#4a3f35] mb-2">
               {profile.name}
             </h3>
-            <p className="inline-block px-4 py-1 bg-[#b17a5c] text-white text-xs sm:text-sm font-medium rounded-full shadow-sm mb-4">
+            <p className="inline-block px-4 py-1 bg-[#b17a5c] text-white text-xs sm:text-sm font-medium rounded-full shadow-sm mb-6">
               {profile.title}
             </p>
 
-            <ul className="text-sm text-[#5c534a] space-y-1 list-none p-0 text-left">
-              <li>
-                <span className="font-semibold">年齢:</span>
+            <div className="flex flex-col items-start gap-y-2 text-xs font-bold tracking-wider mb-8">
+              <div className="flex items-center text-[#b17a5c]">
+                <span className="mr-2 opacity-50">Age:</span>
                 {age}歳
-              </li>
-              <li>
-                <span className="font-semibold">出身地:</span>
+              </div>
+              <div className="flex items-center text-[#4a3f35]">
+                <span className="mr-2 opacity-50">From:</span>
                 {profile.birthPlace}
-              </li>
-              <li>
-                <span className="font-semibold">居住地:</span>
+              </div>
+              <div className="flex items-center text-[#4a3f35]">
+                <span className="mr-2 opacity-50">Location:</span>
                 {profile.residence}
-              </li>
-              <li>
-                <span className="font-semibold">活動エリア:</span>
+              </div>
+              <div className="flex items-center text-[#4a3f35]">
+                <span className="mr-2 opacity-50">Activity Area:</span>
                 {profile.activityArea}
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
 
           <div className="text-[#5c534a] space-y-4 leading-relaxed text-left">
