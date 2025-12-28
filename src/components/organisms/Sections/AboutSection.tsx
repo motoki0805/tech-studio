@@ -1,11 +1,25 @@
 import Image from "next/image";
 import { SectionContainer } from "../../atoms/SectionContainer";
 import { InfoCard } from "../../molecules/InfoCard";
+import { profile } from "@/data/profile";
 
 export const AboutSection = () => {
+  const calculateAge = (birthDate: string): number => {
+    const birth = new Date(birthDate);
+    const today = new Date();
+    let age = today.getFullYear() - birth.getFullYear();
+    const m = today.getMonth() - birth.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+      age--;
+    }
+    return age;
+  };
+
+  const age = calculateAge(profile.birthDate);
+
   return (
     <SectionContainer id="about" title="About" maxWidth="7xl">
-        {/* プロフィールメインエリア */}
+      {/* プロフィールメインエリア */}
       <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 mb-8">
         {/* アイコン */}
         <div className="shrink-0">
@@ -25,27 +39,36 @@ export const AboutSection = () => {
         <div className="space-y-6 text-center md:text-left max-w-2xl">
           <div>
             <h3 className="text-2xl sm:text-3xl font-bold text-[#4a3f35] mb-2">
-              motoki0805
+              {profile.name}
             </h3>
             <p className="inline-block px-4 py-1 bg-[#b17a5c] text-white text-xs sm:text-sm font-medium rounded-full shadow-sm mb-4">
-              フロント / バックエンドエンジニア
+              {profile.title}
             </p>
-            
-            <ul className="text-sm text-[#5c534a] space-y-1 list-none p-0">
-              <li>・1996年生まれ（29歳）</li>
-              <li>・福島県出身</li>
-              <li>・愛知県在住（活動エリア：愛知）</li>
+
+            <ul className="text-sm text-[#5c534a] space-y-1 list-none p-0 text-left">
+              <li>
+                <span className="font-semibold">年齢:</span>
+                {age}歳
+              </li>
+              <li>
+                <span className="font-semibold">出身地:</span>
+                {profile.birthPlace}
+              </li>
+              <li>
+                <span className="font-semibold">居住地:</span>
+                {profile.residence}
+              </li>
+              <li>
+                <span className="font-semibold">活動エリア:</span>
+                {profile.activityArea}
+              </li>
             </ul>
           </div>
 
-          <div className="text-[#5c534a] space-y-4 leading-relaxed">
-            <p>
-              愛知を中心に活動しているエンジニアです。
-              ツールやシステムは使われてこそ意味があると思っているので、顧客が「便利になった」と感じるものを形にすることを目指しています。
-            </p>
-            <p>
-              良いものを作るためにコードレビューなども積極的に行い、後から自分や周りの人が見ても困らない、質の高いアウトプットを心がけています。
-            </p>
+          <div className="text-[#5c534a] space-y-4 leading-relaxed text-left">
+            {profile.introduction.map((text, index) => (
+              <p key={index}>{text}</p>
+            ))}
           </div>
         </div>
       </div>
@@ -54,28 +77,22 @@ export const AboutSection = () => {
         <InfoCard title="">
           <div className="space-y-4 text-[#5c534a]">
             <p className="font-bold text-[#4a3f35] text-lg">
-              趣味はVRと食べ歩きです。
+              {profile.hobby.title}
             </p>
-            <p>
-              色々な人とコミュニケーションを取るのが目的で始めました。そこからVR空間でのエンジニア集会などを知り、場所に縛られずにリアルタイムで情報交換ができるのが面白いと感じています。
-            </p>
-            <p>
-              食べ歩きは、休日に大須商店街で新しいお店探しをしています。美味しいものを食べることは自分にとって良いリフレッシュになっています。
-            </p>
+            {profile.hobby.description.map((text, index) => (
+              <p key={index}>{text}</p>
+            ))}
           </div>
         </InfoCard>
 
         <InfoCard title="">
           <div className="space-y-4 text-[#5c534a]">
             <p className="font-bold text-[#4a3f35] text-lg">
-              「誰が見ても困らない」品質を。
+              {profile.qualityPolicy.title}
             </p>
-            <p>
-              「一度作って終わり」にはしたくないので、後から自分やチームメンバーが読み返したときに迷わないコードとドキュメントを残すことを徹底しています。
-            </p>
-            <p>
-              当たり前のことかもしれませんが、こうした積み重ねがシステムの信頼性と、その先の顧客の「便利さ」に直結すると考えています。
-            </p>
+            {profile.qualityPolicy.description.map((text, index) => (
+              <p key={index}>{text}</p>
+            ))}
           </div>
         </InfoCard>
       </div>

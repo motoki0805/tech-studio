@@ -6,7 +6,7 @@ export const WORKS_DATA: Work[] = [
     title: "外構業者向けシステム",
     period: "2025年7月 〜 現在",
     tech: "PHP (Laravel), Vue.js, MySQL, Azure",
-    role: "バックエンドエンジニア / パフォーマンス改善",
+    role: "バックエンドエンジニア",
     description: (
       <>
         <p className="mb-2">
@@ -50,7 +50,7 @@ export const WORKS_DATA: Work[] = [
     title: "インターン生育成・技術指導",
     period: "2023年3月 〜 2024年2月",
     tech: "PHP (Laravel), JavaScript, MySQL",
-    role: "技術メンター",
+    role: "メンター",
     description: (
       <>
         <p className="mb-2">
