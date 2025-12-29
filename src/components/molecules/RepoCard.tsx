@@ -10,6 +10,7 @@ import {
 import { BiGitRepoForked } from "react-icons/bi";
 import { type Repository } from "@/types/github";
 import { RepoModal } from "./RepoModal";
+import { CardBase } from "../atoms/CardBase";
 
 type RepoProps = {
   repo: Repository;
@@ -31,12 +32,9 @@ export const RepoCard = ({
 
   return (
     <>
-      <button
+      <CardBase
         onClick={() => setIsOpen(true)}
-        className={
-          "relative flex flex-col h-full backdrop-blur-sm rounded-2xl p-6 shadow-sm border transition-all duration-300 hover:shadow-lg hover:-translate-y-1 text-left w-full group bg-white/50 border-gray-100 hover:bg-white"
-        }
-        type="button"
+        className="bg-white border-gray-100 hover:bg-white"
         aria-label={`View details for ${repo.name} repository`}
       >
         <div
@@ -46,7 +44,7 @@ export const RepoCard = ({
         {/* タイトルエリア */}
         <div className="flex items-center gap-2 text-gray-900 font-semibold text-lg mb-2 pl-3">
           <FaGithub className="text-xl shrink-0" />
-          <span className="group-hover:text-blue-600 transition-colors break-words">
+          <span className="group-hover:text-[#b17a5c] transition-colors break-words">
             {repo.name}
           </span>
         </div>
@@ -57,7 +55,7 @@ export const RepoCard = ({
             {repo.topics.slice(0, 4).map((topic) => (
               <span
                 key={topic}
-                className="px-2 py-0.5 text-[10px] font-medium bg-blue-50 text-blue-600 rounded-full border border-blue-100"
+                className="px-2 py-0.5 text-[10px] font-medium bg-[#f5efeb] text-[#b17a5c] rounded-full border border-[#e0d6ce]"
               >
                 {topic}
               </span>
@@ -74,7 +72,7 @@ export const RepoCard = ({
         <div className="pl-3 mt-auto space-y-4 w-full">
           <div className="flex items-center gap-4 text-xs text-gray-500 pt-4 border-t border-gray-100">
             {repo.language && (
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap0.5">
                 <span className={`w-2.5 h-2.5 rounded-full ${languageColor}`} />
                 {repo.language}
               </div>
@@ -118,7 +116,7 @@ export const RepoCard = ({
             )}
           </div>
         </div>
-      </button>
+      </CardBase>
 
       {/* 分離したモーダルコンポーネントを使用 */}
       <RepoModal
