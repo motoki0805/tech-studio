@@ -5,7 +5,7 @@ export const WORKS_DATA: Work[] = [
     id: "exterior-system",
     title: "外構業者向けシステム",
     period: "2025年7月 〜 現在",
-    tech: "PHP (Laravel), Vue.js, MySQL, Azure",
+    tech: ["PHP (Laravel)", "Vue.js", "MySQL", "Azure"],
     role: "バックエンドエンジニア",
     description: (
       <>
@@ -27,7 +27,7 @@ export const WORKS_DATA: Work[] = [
     id: "finance-system",
     title: "金融系Web申込受付システム",
     period: "2022年12月 〜 2025年6月",
-    tech: "PHP (Laravel), React, TypeScript, PostgreSQL, AWS",
+    tech: ["PHP (Laravel)", "React", "TypeScript", "PostgreSQL", "AWS"],
     role: "チームリーダー / フルスタックエンジニア",
     description: (
       <>
@@ -49,7 +49,7 @@ export const WORKS_DATA: Work[] = [
     id: "mentor-intern",
     title: "インターン生育成・技術指導",
     period: "2023年3月 〜 2024年2月",
-    tech: "PHP (Laravel), JavaScript, MySQL",
+    tech: ["PHP (Laravel)", "JavaScript", "MySQL"],
     role: "メンター",
     description: (
       <>

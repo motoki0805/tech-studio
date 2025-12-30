@@ -31,12 +31,25 @@ export const WorkModal = ({ isOpen, onClose, work }: WorkModalProps) => {
         </div>
 
         <div className="text-[#5c534a] space-y-4 leading-relaxed border-t border-[#f5efeb] pt-6">
-          <p className="text-xs font-bold uppercase tracking-widest text-[#8c7e71]">Tech Stack</p>
-          <p>{work.tech}</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-[#8c7e71]">
+            Tech Stack
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {work.tech.map((tech) => (
+              <span
+                key={tech}
+                className="px-2 py-0.5 text-[10px] font-medium bg-[#f5efeb] text-[#b17a5c] rounded-full border border-[#e0d6ce]"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="text-[#5c534a] space-y-4 leading-relaxed border-t border-[#f5efeb] pt-6">
-         <p className="text-xs font-bold uppercase tracking-widest text-[#8c7e71]">Description</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-[#8c7e71]">
+            Description
+          </p>
           <div className="space-y-3">{work.description}</div>
         </div>
 
