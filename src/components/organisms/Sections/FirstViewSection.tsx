@@ -2,45 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 
 export const FirstViewSection = () => {
-  const [text, setText] = useState("");
-  const [showTitle, setShowTitle] = useState(false);
-  const [showSubtitle, setShowSubtitle] = useState(false);
-  const [showButton, setShowButton] = useState(false);
-  const fullText = "Web Application Development & Engineering Portfolio";
-
-  useEffect(() => {
-    let subtitleInterval: NodeJS.Timeout;
-    // タイトルを表示するタイマー
-    const showTitleTimer = setTimeout(() => {
-      setShowTitle(true);
-    }, 100);
-    // サブタイトルを表示するタイマー
-    const startSubtitleTimer = setTimeout(() => {
-      setShowSubtitle(true);
-      let i = 0;
-      subtitleInterval = setInterval(() => {
-        setText(fullText.substring(0, i));
-        i++;
-        if (i > fullText.length) {
-          clearInterval(subtitleInterval);
-          setShowButton(true);
-        }
-      }, 50);
-    }, 1500);
-
-    return () => {
-      clearTimeout(showTitleTimer);
-      clearTimeout(startSubtitleTimer);
-      if (subtitleInterval) {
-        clearInterval(subtitleInterval);
-      } 
-    };
-  }, [fullText]);
-
   return (
     <section
       id="top"
@@ -66,31 +30,18 @@ export const FirstViewSection = () => {
       </div>
 
       <div className="relative z-10 px-4 text-center">
-        <h1
-          className={`text-5xl font-extrabold tracking-tight text-[#4a3f35] sm:text-7xl mb-6 drop-shadow-sm ${
-            showTitle
-              ? "animate-in fade-in slide-in-from-top-8 duration-1000 delay-300"
-              : "opacity-0"
-          }`}
-        >
+        <h1 className="text-5xl font-extrabold tracking-tight text-[#4a3f35] sm:text-7xl mb-6 drop-shadow-sm animate-in slide-in-from-top fade-in duration-1000">
           {process.env.NEXT_PUBLIC_SITE_NAME_JA || "ななしまテック工房"}
         </h1>
 
         <p
-          className={`text-lg text-[#5c534a] sm:text-xl max-w-2xl mx-auto font-mono font-medium min-h-[1.5em] bg-[#faf7f5]/40 inline-block px-4 py-1 rounded-full backdrop-blur-sm shadow-sm transition-opacity duration-300 ${
-            showSubtitle ? "opacity-100" : "opacity-0"
-          }`}
+          className={`text-lg text-[#5c534a] sm:text-xl max-w-2xl mx-auto font-mono font-medium min-h-[1.5em] bg-[#faf7f5]/40 inline-block px-4 py-1 rounded-full backdrop-blur-sm shadow-sm animate-in slide-in-from-top fade-in duration-1000`}
         >
-          {text}
-          <span className="inline-block w-0.5 h-5 ml-1 bg-[#b17a5c] animate-pulse" />
+          Web Application Development & Engineering Portfolio
         </p>
 
         <div
-          className={`mt-12 flex justify-center gap-4 animate-in fade-in zoom-in duration-1000 ${
-            showButton
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
-          }`}
+          className={`mt-12 flex justify-center gap-4 animate-in fade-in zoom-in duration-1000 pointer-events-auto`}
         >
           <Link
             href="#about"
