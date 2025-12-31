@@ -13,7 +13,7 @@ export const FirstViewSection = () => {
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="relative w-full h-full animate-slow-zoom">
           <Image
-            src="/background-view.png"
+            src="/background-view.webp"
             alt="Background"
             fill
             priority
