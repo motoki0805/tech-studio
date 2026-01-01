@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
+import backgroundImage from "@/images/background-view.webp";
 
 export const FirstViewSection = () => {
   return (
@@ -13,10 +14,11 @@ export const FirstViewSection = () => {
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="relative w-full h-full animate-slow-zoom">
           <Image
-            src="/background-view.webp"
+            src={backgroundImage}
             alt="Background"
             fill
             priority
+            placeholder="blur"
             className="object-cover blur-[6px] brightness-[0.9]"
           />
         </div>
