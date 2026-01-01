@@ -12,7 +12,7 @@ export const FirstViewSection = () => {
       className="relative flex min-h-screen items-center justify-center pt-16 overflow-hidden"
     >
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="relative w-full h-full animate-slow-zoom">
+        <div className="relative w-full h-full">
           <Image
             src={backgroundImage}
             alt="Background"
