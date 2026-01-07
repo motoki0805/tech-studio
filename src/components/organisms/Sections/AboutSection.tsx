@@ -21,6 +21,7 @@ export const AboutSection = () => {
               height={500}
               className="object-cover"
               priority
+              sizes="(max-width: 640px) 192px, 256px"
             />
           </div>
         </div>
