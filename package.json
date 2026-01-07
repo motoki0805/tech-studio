@@ -6,8 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "analyze": "ANALYZE=true next build --webpack"
   },
+  "browserslist": [
+    "defaults",
+    "not IE 11"
+  ],
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",
     "lucide-react": "^0.556.0",
@@ -22,6 +27,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^16.1.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

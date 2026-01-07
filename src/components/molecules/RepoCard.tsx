@@ -16,7 +16,7 @@ const RepoModal = dynamic(
   () => import("./RepoModal").then((mod) => mod.RepoModal),
   {
     ssr: false,
-  },
+  }
 );
 
 type RepoProps = {
@@ -126,13 +126,15 @@ export const RepoCard = ({
       </CardBase>
 
       {/* 分離したモーダルコンポーネントを使用 */}
-      <RepoModal
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        repo={repo}
-        owner={owner}
-        isCurrentSite={isCurrentSite}
-      />
+      {isOpen && (
+        <RepoModal
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          repo={repo}
+          owner={owner}
+          isCurrentSite={isCurrentSite}
+        />
+      )}
     </>
   );
 };
