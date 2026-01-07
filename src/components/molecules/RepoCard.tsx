@@ -9,8 +9,15 @@ import {
 } from "react-icons/fa";
 import { BiGitRepoForked } from "react-icons/bi";
 import { type Repository } from "@/types/github";
-import { RepoModal } from "./RepoModal";
+import dynamic from "next/dynamic";
 import { CardBase } from "../atoms/CardBase";
+
+const RepoModal = dynamic(
+  () => import("./RepoModal").then((mod) => mod.RepoModal),
+  {
+    ssr: false,
+  },
+);
 
 type RepoProps = {
   repo: Repository;
