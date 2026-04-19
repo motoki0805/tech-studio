@@ -32,6 +32,7 @@ export const FirstViewSection = () => {
             placeholder="blur"
             sizes="100vw"
             className="object-cover"
+            unoptimized
           />
         </div>
         <div className="absolute inset-0 bg-[#faf7f5]/45" />
