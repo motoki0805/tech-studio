@@ -15,7 +15,9 @@ export const SectionContainer = ({
 }: SectionContainerProps) => {
   return (
     <section id={id} className="py-24 bg-[#faf7f5]">
-      <div className={`mx-auto max-w-${maxWidth} px-4 sm:px-6 lg:px-8`}>
+      <div
+        className={`mx-auto px-4 sm:px-6 lg:px-8 ${maxWidth === "5xl" ? "max-w-5xl" : "max-w-7xl"}`}
+      >
         {/* タイトルデザイン */}
         <div className="mb-8 text-center md:text-left">
           <h2 className="text-3xl font-bold tracking-tight text-[#4a3f35] sm:text-4xl relative inline-block">

@@ -6,17 +6,19 @@ import { MaintenanceTemplate } from "@/components/templates/MaintenanceTemplate"
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const notoSansJp = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
   weight: ["400", "700"],
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin"],
   display: "swap",
 });
 
@@ -42,7 +44,7 @@ export const metadata: Metadata = {
     siteName: process.env.NEXT_PUBLIC_SITE_NAME_JA || "テック工房",
     locale: "ja_JP",
     type: "website",
-    images: "/og-image.png",
+    images: "/og-image.jpg",
   },
   twitter: {
     card: "summary_large_image",
@@ -53,7 +55,7 @@ export const metadata: Metadata = {
       "愛知を拠点に活動するフリーランスエンジニア。Webシステム開発、業務改善、DX支援など、技術でビジネスの課題を解決します。",
     site: process.env.NEXT_PUBLIC_TWITTER_SITE,
     creator: process.env.NEXT_PUBLIC_TWITTER_CREATOR,
-    images: "/og-image.png",
+    images: "/og-image.jpg",
   },
   icons: {
     icon: "/logo.png",

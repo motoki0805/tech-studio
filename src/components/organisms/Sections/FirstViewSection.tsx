@@ -1,8 +1,19 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronDown } from "lucide-react";
+const ChevronDown = ({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="m6 9 6 6 6-6" />
+  </svg>
+);
 import backgroundImage from "@/images/background-view.webp";
 
 export const FirstViewSection = () => {
@@ -19,10 +30,11 @@ export const FirstViewSection = () => {
             fill
             priority
             placeholder="blur"
-            className="object-cover blur-[6px] brightness-[0.9]"
+            sizes="100vw"
+            className="object-cover"
           />
         </div>
-        <div className="absolute inset-0 bg-[#faf7f5]/45 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 bg-[#faf7f5]/45" />
       </div>
 
       <div className="relative z-10 px-4 text-center">

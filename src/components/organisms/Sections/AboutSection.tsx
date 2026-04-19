@@ -15,10 +15,10 @@ export const AboutSection = () => {
         <div className="shrink-0">
           <div className="relative w-48 h-48 sm:w-64 sm:h-64 rounded-full overflow-hidden border-4 border-white shadow-md">
             <Image
-              src="/icon.jpg"
+              src="/icon.webp"
               alt="プロフィールアイコン"
-              width={500}
-              height={500}
+              width={256}
+              height={256}
               className="object-cover"
               priority
               sizes="(max-width: 640px) 192px, 256px"

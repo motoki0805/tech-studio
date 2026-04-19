@@ -3,7 +3,12 @@
 import { useState } from "react";
 import { type Work } from "@/types/work";
 import { CardBase } from "../atoms/CardBase";
-import { WorkModal } from "./WorkModal";
+import dynamic from "next/dynamic";
+
+const WorkModal = dynamic(
+  () => import("./WorkModal").then((mod) => mod.WorkModal),
+  { ssr: false },
+);
 import { FaBriefcase } from "react-icons/fa";
 
 type WorkCardProps = {
@@ -59,7 +64,9 @@ export const WorkCard = ({ work }: WorkCardProps) => {
         </div>
       </CardBase>
 
-      <WorkModal isOpen={isOpen} onClose={() => setIsOpen(false)} work={work} />
+      {isOpen && (
+        <WorkModal isOpen={isOpen} onClose={() => setIsOpen(false)} work={work} />
+      )}
     </>
   );
 };

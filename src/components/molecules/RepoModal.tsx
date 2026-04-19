@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -59,17 +60,14 @@ export const RepoModal = ({
         src = `https://raw.githubusercontent.com/${owner}/${repo.name}/${repo.default_branch}/${cleanSrc}`;
       }
       return (
-        /* eslint-disable-next-line @next/next/no-img-element */
-        <img
-          {...props}
+        <Image
           src={src as string}
-          style={{
-            maxWidth: "100%",
-            height: "auto",
-            display: "block",
-            margin: "1rem auto",
-          }}
           alt={props.alt || "Repository image"}
+          width={800}
+          height={400}
+          className="rounded-lg mx-auto my-4 max-w-full h-auto"
+          sizes="(max-width: 768px) 100vw, 800px"
+          loading="lazy"
         />
       );
     },
