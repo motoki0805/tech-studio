@@ -2,11 +2,34 @@ import { Work } from "@/types/work";
 
 export const WORKS_DATA: Work[] = [
   {
+    id: "scratch-web-system",
+    title: "業務系Webシステム開発支援",
+    period: "2025年12月 〜 2026年4月",
+    tech: ["React", "TypeScript", "C#.NET", "SQL Server", "GitLab CI/CD", "Azure"],
+    role: "SE / フルスタックエンジニア",
+    description: (
+      <>
+        <p className="mb-2">
+          業務系Webシステムのスクラッチ開発に参画し、React環境をゼロから構築しました。Package by Feature・Atomic Designを採用したアーキテクチャ設計とConfig定義による画面描画基盤の構築により、開発工数を約45%削減しました。
+        </p>
+        <p>
+          開発基盤を作成し、GitLab CI/CDによる自動デプロイ環境も整備。その基盤を日用雑貨DX推進・工事保守進捗可視化の複数プロジェクトへ横展開しました。
+        </p>
+      </>
+    ),
+    highlights: [
+      "アーキテクチャ設計により開発工数を約45%削減",
+      "React環境をゼロから構築・開発基盤を作成",
+      "GitLab CI/CDによる自動デプロイ環境の整備",
+      "複数のDX推進プロジェクトへの横展開を実現",
+    ],
+  },
+  {
     id: "exterior-system",
     title: "外構業者向けシステム",
-    period: "2025年7月 〜 現在",
+    period: "2025年7月 〜 2025年12月",
     tech: ["PHP (Laravel)", "Vue.js", "MySQL", "Azure"],
-    role: "バックエンドエンジニア",
+    role: "フルスタックエンジニア",
     description: (
       <>
         <p className="mb-2">
