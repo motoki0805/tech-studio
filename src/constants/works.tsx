@@ -5,7 +5,7 @@ export const WORKS_DATA: Work[] = [
     id: "scratch-web-system",
     title: "業務系Webシステム開発支援",
     period: "2025年12月 〜 2026年4月",
-    tech: ["React", "TypeScript", "C#.NET", "SQL Server", "GitLab CI/CD", "Azure"],
+    tech: ["React", "TypeScript", "C#.NET", "SQL Server", "GitLab CI/CD"],
     role: "SE / フルスタックエンジニア",
     description: (
       <>
