@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tech Studio (テック工房) - ポートフォリオサイト
 
-## Getting Started
+愛知県を拠点に活動するフリーランスエンジニア、七島 茂輝 (motoki0805) の公式ポートフォリオ兼、最新技術の実証実験用Webアプリケーションです。
 
-First, run the development server:
+## 成果物URL
+- **本番サイト:** `https://tech-studio.jp `
+- **GitHub:** `https://github.com/motoki0805/tech-studio`
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## プロジェクト概要
+本プロジェクトは、自身のスキルセット、実務実績（Works）、およびGitHub上のパブリックな活動（Portfolio）を統合して伝えるために構築した、個人開発のWebアプリケーションです。
+単に静的な情報を並べるだけでなく、**「実用性」**と**「運用のしやすさ」**、そして**「変化の激しいモダンフロントエンド技術の積極的なキャッチアップ」**を体現する成果物として開発しました。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 開発期間・担当
+- **開発期間:** 2025年12月 〜 2026年01月 ※修正・アップデートを継続中
+- **所要時間:** 40時間程度
+- **担当範囲:** 企画、デザイン（UI/UX）、フロントエンド、バックエンド（Server Actions）、インフラ選定・デプロイ
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 技術スタック ＆ 選定理由
 
-To learn more about Next.js, take a look at the following resources:
+あえて現在の最先端かつメジャーアップデート直後の技術を積極的に採用し、実務で即座にスケールできる技術選定を行っています。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| 分類 | 技術スタック | 選定理由・メリット |
+| :--- | :--- | :--- |
+| **Framework** | **Next.js 16 (App Router)** | フルスタックな機能、SEO最適化、Server Actionsによる安全でシームレスなAPI隠蔽。 |
+| **Library** | **React 19 / React-DOM 19** | **React Compiler**（`reactCompiler: true`）を活用し、`useMemo`や`useCallback`を手動で書くことなく、描画パフォーマンスを自動で最適化。 |
+| **Styling** | **Tailwind CSS v4** | 最新のCSSベース構成（`@import "tailwindcss"`）を採用。ビルド速度が格段に向上し、モダンなテーマ定義（`@theme inline`）による効率的なスタイル管理を実現。 |
+| **Language** | **TypeScript 5.x** | 厳格な型定義（`strict: true`）による、ランタイムエラーの徹底排除と開発効率の向上。 |
+| **Markdown** | **React Markdown系エコシステム** | `remark-gfm` / `rehype-raw` / `rehype-sanitize` を組み合わせ、GitHubから取得した生マークダウンを安全かつ美しくレンダリング。 |
+| **Analysis** | **@next/bundle-analyzer** | Webpackビルド時のバンドルサイズを可視化し、初期読み込み速度（LCP）を常に意識した軽量な設計を維持。 |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 技術的な工夫と「こだわり」の機能
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+コードの設計において、特に技術力をアピールできる4つのハイライトです。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 1. Server Actions × GitHub API によるオンデマンドREADME取得
+- **概要:** 「Portfolio」セクションでは、GitHub API経由で自身の公開リポジトリ最新6件を動的に取得しています。
+- **UXの工夫:** 初期表示の通信負荷を減らすため、各リポジトリの `README.md` の中身は、ユーザーが**「カードをクリックしてモーダルを開いた瞬間」**に初めてServer Actions（`fetchReadme`）を叩いてオンデマンドで取得する設計にしています。
+
+### 2. マークダウン内の「相対画像パス」自動補完ロジック
+- **概要:** 外部（GitHub）から取得したREADME内に `./image.png` のような相対パスで画像が埋め込まれている場合、そのままでは自サイト内で画像が割れてしまいます。
+- **実装:** `RepoModal.tsx` 内で `ReactMarkdown` の `components` オプションを拡張し、画像URLが相対パスだった場合に自動でGitHubのRawデータURL（`https://raw.githubusercontent.com/...`）へ置換・復元するロジックを自作。さらに `next/image` と組み合わせることで、外部画像でありながら最適化（Lazy Load等）された表示を実現しています。
+
+### 3. 実用的なコンポーネント設計とアクセシビリティ
+- **Atomic Designの思想:** コンポーネントを `atoms`, `molecules`, `organisms`, `templates` に適切に分離。再利用性と見通しの良さを両立しています。
+- **UX/アクセシビリティへの配慮:**
+  - モーダル展開時に背面スクロールを固定するカスタムフック（`useBodyScrollLock`）を自作し、スクロールバーの消失による画面のガタつき（レイアウトシフト）を防ぐためのピクセル計算を導入。
+  - `role="dialog"` や `aria-modal="true"` など、スクリーンリーダーを意識したHTML設計。
+
+### 4. 環境変数による「メンテナンスモード」切り替え
+- `NEXT_PUBLIC_IS_MAINTENANCE="true"` の環境変数一枚で、サイト全体を即座に「Coming Soon（準備中）」のテンプレート画面へと切り替えられる、実運用を想定した運用保守機能を備えています。
+
+---
+
+## UI/UXデザインのコンセプト
+
+- **アースカラーを基調とした親しみやすさ:** `#4a3f35`（深みのあるブラウン）や `#b17a5c`（テラコッタ）といった温かみのある色彩を採用し、「テック工房」という親しみやすくもプロフェッショナルな職人気質を表現。
+- **レスポンシブの徹底:** デスクトップでは洗練されたナビゲーション、モバイルではスムーズなハンバーガーメニューアニメーション（`tailwindcss-animate` を使用）へと切り替わるストレスフリーな設計。
+
+---
+
+## 📄 ライセンス
+
+このプロジェクト（ソースコード）は [MIT License](LICENSE) のもとで公開されています。
