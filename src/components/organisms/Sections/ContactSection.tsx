@@ -1,5 +1,10 @@
+import dynamic from "next/dynamic";
 import { SectionContainer } from "@/components/atoms/SectionContainer";
-import { ContactForm } from "@/components/molecules/ContactForm";
+
+const ContactForm = dynamic(
+  () => import("@/components/molecules/ContactForm").then((m) => m.ContactForm),
+  { ssr: false }
+);
 
 export const ContactSection = () => {
   return (
