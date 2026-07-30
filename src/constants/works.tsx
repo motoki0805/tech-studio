@@ -6,7 +6,7 @@ export const WORKS_DATA: Work[] = [
     title: "業務系Webシステム開発支援",
     period: "2025年12月 〜 2026年4月",
     tech: ["React", "TypeScript", "C#.NET", "SQL Server", "GitLab CI/CD"],
-    role: "SE / フルスタックエンジニア",
+    role: "SE",
     description: (
       <>
         <p className="mb-2">
@@ -29,7 +29,7 @@ export const WORKS_DATA: Work[] = [
     title: "外構業者向けシステム",
     period: "2025年7月 〜 2025年12月",
     tech: ["PHP (Laravel)", "Vue.js", "MySQL", "Azure"],
-    role: "フルスタックエンジニア",
+    role: "フロント / バックエンドエンジニア",
     description: (
       <>
         <p className="mb-2">
@@ -51,7 +51,7 @@ export const WORKS_DATA: Work[] = [
     title: "金融系Web申込受付システム",
     period: "2022年12月 〜 2025年6月",
     tech: ["PHP (Laravel)", "React", "TypeScript", "PostgreSQL", "AWS"],
-    role: "チームリーダー / フルスタックエンジニア",
+    role: "チームリーダー / SE",
     description: (
       <>
         <p className="mb-2">
