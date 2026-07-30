@@ -39,7 +39,7 @@ export const FirstViewSection = () => {
       </div>
 
       <div className="relative z-10 px-4 text-center">
-        <h1 className="text-5xl font-extrabold tracking-tight text-[#4a3f35] sm:text-7xl mb-6 drop-shadow-sm animate-in slide-in-from-top fade-in duration-1000">
+        <h1 className="text-[2.75rem] font-extrabold tracking-tight text-[#4a3f35] sm:text-7xl mb-6 drop-shadow-sm animate-in slide-in-from-top fade-in duration-1000">
           {process.env.NEXT_PUBLIC_SITE_NAME_JA || "ななしまテック工房"}
         </h1>
 
