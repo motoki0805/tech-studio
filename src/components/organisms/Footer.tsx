@@ -1,7 +1,15 @@
+import Link from "next/link";
+
 export const Footer = () => {
   return (
     <footer className="bg-[#f5efeb] border-t border-[#e5ded8] py-8">
-      <div className="mx-auto max-w-7xl px-4 flex justify-center items-center">
+      <div className="mx-auto max-w-7xl px-4 flex flex-col items-center gap-3">
+        <Link
+          href="/privacy"
+          className="text-[10px] sm:text-xs text-[#8c8279] hover:text-[#b17a5c] transition-colors"
+        >
+          プライバシーポリシー
+        </Link>
         <p className="text-[10px] sm:text-xs text-[#8c8279] tracking-widest text-center font-medium">
           &copy; {new Date().getFullYear()} {process.env.NEXT_PUBLIC_SITE_NAME_EN || "Tech Studio"}. All rights
           reserved.

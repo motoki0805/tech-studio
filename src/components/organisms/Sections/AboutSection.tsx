@@ -68,9 +68,9 @@ export const AboutSection = () => {
         <InfoCard title="">
           <div className="space-y-4 text-[#5c534a]">
             <p className="font-bold text-[#4a3f35] text-lg">
-              {profile.hobby.title}
+              {profile.qualityPolicy.title}
             </p>
-            {profile.hobby.description.map((item) => (
+            {profile.qualityPolicy.description.map((item) => (
               <p key={item.id}>{item.text}</p>
             ))}
           </div>
@@ -79,9 +79,9 @@ export const AboutSection = () => {
         <InfoCard title="">
           <div className="space-y-4 text-[#5c534a]">
             <p className="font-bold text-[#4a3f35] text-lg">
-              {profile.qualityPolicy.title}
+              {profile.hobby.title}
             </p>
-            {profile.qualityPolicy.description.map((item) => (
+            {profile.hobby.description.map((item) => (
               <p key={item.id}>{item.text}</p>
             ))}
           </div>

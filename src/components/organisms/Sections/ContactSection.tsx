@@ -1,17 +1,15 @@
+import { SectionContainer } from "@/components/atoms/SectionContainer";
+import { ContactForm } from "@/components/molecules/ContactForm";
+
 export const ContactSection = () => {
   return (
-    <section
-      id="contact"
-      className="min-h-[50vh] py-24 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white"
-    >
-      <div className="mx-auto max-w-7xl">
-        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-8 border-b border-gray-700 pb-4">
-          Contact
-        </h2>
-        <p className="text-lg text-gray-300">
-          お仕事のご依頼やご相談はこちらから。
-        </p>
+    <SectionContainer id="contact" title="Contact">
+      <p className="text-[#5c534a] mb-10 text-center md:text-left">
+        お仕事のご依頼・ご質問などお気軽にお問い合わせください。
+      </p>
+      <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-sm p-8 md:p-12">
+        <ContactForm />
       </div>
-    </section>
+    </SectionContainer>
   );
 };
