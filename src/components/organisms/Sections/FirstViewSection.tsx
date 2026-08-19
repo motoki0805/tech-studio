@@ -44,7 +44,7 @@ export const FirstViewSection = () => {
         </h1>
 
         <p
-          className={`text-lg text-[#5c534a] sm:text-xl max-w-2xl mx-auto font-mono font-medium min-h-[1.5em] bg-[#faf7f5]/40 inline-block px-4 py-1 rounded-full backdrop-blur-sm shadow-sm animate-in slide-in-from-top fade-in duration-1000`}
+          className={`text-lg text-[#5c534a] sm:text-xl max-w-2xl mx-auto font-mono font-medium min-h-[1.5em] bg-[#faf7f5]/80 inline-block px-4 py-1 rounded-full shadow-sm animate-in slide-in-from-top fade-in duration-1000`}
         >
           Web Application Development & Engineering Portfolio
         </p>

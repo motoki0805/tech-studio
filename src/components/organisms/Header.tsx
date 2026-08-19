@@ -48,7 +48,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+    <header className="fixed top-0 w-full z-50 bg-white/95 border-b border-gray-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* ロゴエリア */}
         <Link
@@ -80,17 +80,15 @@ export const Header = () => {
               <Link
                 key={item.id}
                 href={item.href}
-                className={`text-sm font-medium transition-colors relative group/link ${
-                  isActive
+                className={`text-sm font-medium transition-colors relative group/link ${isActive
                     ? "text-gray-900"
                     : "text-gray-600 hover:text-gray-900"
-                }`}
+                  }`}
               >
                 {item.name}
                 <span
-                  className={`absolute -bottom-1 left-0 h-0.5 bg-gray-900 transition-all duration-300 group-hover/link:w-full ${
-                    isActive ? "w-full" : "w-0"
-                  }`}
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-gray-900 transition-all duration-300 group-hover/link:w-full ${isActive ? "w-full" : "w-0"
+                    }`}
                 />
               </Link>
             );
@@ -118,11 +116,10 @@ export const Header = () => {
                   key={item.id}
                   href={item.href}
                   onClick={handleLinkClick}
-                  className={`py-4 px-4 text-lg font-medium border-b border-gray-50 last:border-none transition-colors ${
-                    isActive
+                  className={`py-4 px-4 text-lg font-medium border-b border-gray-50 last:border-none transition-colors ${isActive
                       ? "text-gray-900 bg-gray-50 rounded-lg"
                       : "text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg"
-                  }`}
+                    }`}
                 >
                   {item.name}
                 </Link>

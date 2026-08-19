@@ -40,5 +40,5 @@ html {
 }
 
 .animate-bounce-subtle {
-  animation: bounce-subtle 1.5s infinite;
+  animation: none;
 }
