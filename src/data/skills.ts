@@ -20,6 +20,7 @@ import {
   SiAmazonwebservices,
 } from "react-icons/si";
 import { VscDatabase, VscAzure } from "react-icons/vsc";
+import { TbBrandCSharp } from "react-icons/tb";
 import { SkillCategory } from "@/types/skill";
 
 export const SKILLS: SkillCategory[] = [
@@ -31,7 +32,7 @@ export const SKILLS: SkillCategory[] = [
       { id: 3, name: "HTML5", icon: SiHtml5, color: "text-orange-600", level: "A", years: "3年" },
       { id: 4, name: "CSS3", icon: SiCss3, color: "text-blue-600", level: "A", years: "3年" },
       { id: 5, name: "PHP", icon: SiPhp, color: "text-indigo-600", level: "A", years: "3年" },
-      { id: 6, name: "C#", icon: SiDotnet, color: "text-purple-600", level: "B", years: "0.5年" },
+      { id: 6, name: "C#", icon: TbBrandCSharp, color: "text-purple-600", level: "B", years: "0.5年" },
       { id: 7, name: "Python", icon: SiPython, color: "text-yellow-600", level: "B", years: "0.5年" },
     ],
   },
@@ -43,6 +44,7 @@ export const SKILLS: SkillCategory[] = [
       { id: 10, name: "Bootstrap", icon: SiBootstrap, color: "text-purple-500", level: "A", years: "3年" },
       { id: 11, name: "Next.js", icon: SiNextdotjs, color: "text-gray-800", level: "B", years: "1年" },
       { id: 12, name: "Vue.js", icon: SiVuedotjs, color: "text-green-500", level: "B", years: "0.5年" },
+      { id: 22, name: ".NET", icon: SiDotnet, color: "text-purple-600", level: "B", years: "0.5年" },
     ],
   },
   {
@@ -54,9 +56,9 @@ export const SKILLS: SkillCategory[] = [
       { id: 16, name: "Git", icon: SiGit, color: "text-orange-600", level: "A", years: "3年" },
       { id: 17, name: "GitHub", icon: SiGithub, color: "text-gray-800", level: "A", years: "3年" },
       { id: 18, name: "Linux", icon: SiLinux, color: "text-yellow-500", level: "C", years: "2.5年" },
-      { id: 19, name: "SQLServer", icon: VscDatabase, color: "text-red-700", level: "D", years: "0.5年" },
+      { id: 19, name: "SQLServer", icon: VscDatabase, color: "text-red-700", level: "C", years: "0.5年" },
       { id: 20, name: "AWS", icon: SiAmazonwebservices, color: "text-[#FF9900]", level: "B", years: "3年" },
-      { id: 21, name: "Azure", icon: VscAzure, color: "text-blue-500", level: "D", years: "1年" },
+      { id: 21, name: "Azure", icon: VscAzure, color: "text-blue-500", level: "C", years: "1年" },
     ],
   },
 ];

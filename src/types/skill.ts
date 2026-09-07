@@ -1,6 +1,6 @@
 import { IconType } from "react-icons";
 
-export type SkillLevel = "A" | "B" | "C" | "D";
+export type SkillLevel = "A" | "B" | "C";
 
 export interface Skill {
   id: number;

@@ -2,18 +2,26 @@ import { SectionContainer } from "../../atoms/SectionContainer";
 import { SKILLS } from "@/data/skills";
 import { SkillLevel } from "@/types/skill";
 
-const levelColors: Record<SkillLevel, string> = {
-  A: "bg-emerald-100 text-emerald-700",
-  B: "bg-blue-100 text-blue-700",
-  C: "bg-amber-100 text-amber-700",
-  D: "bg-gray-400 text-white",
-};
+// 色の濃淡による誤認を避けるため、単色の塗りつぶし数（ドット）で習熟度を表現
+const LEVEL_RANK: Record<SkillLevel, number> = { A: 3, B: 2, C: 1 };
+
+const LevelDots = ({ level }: { level: SkillLevel }) => (
+  <div className="flex items-center gap-0.5" aria-label={`習熟度 ${level}`}>
+    {[1, 2, 3].map((dot) => (
+      <span
+        key={dot}
+        className={`w-1.5 h-1.5 rounded-full ${
+          dot <= LEVEL_RANK[level] ? "bg-[#b17a5c]" : "bg-[#e5ded8]"
+        }`}
+      />
+    ))}
+  </div>
+);
 
 const LEVEL_DESCRIPTIONS: { level: SkillLevel; label: string }[] = [
   { level: "A", label: "設計・実装・改善を主導でき、チームの指導役も担える" },
   { level: "B", label: "要件を理解し、自走して開発・実装ができる" },
-  { level: "C", label: "サポートを受けながら開発を進められる" },
-  { level: "D", label: "実務の中でキャッチアップしながら使用してきた" },
+  { level: "C", label: "キャッチアップしながら対応できる" },
 ];
 
 export const SkillsSection = () => {
@@ -23,9 +31,8 @@ export const SkillsSection = () => {
       <div className="flex flex-col gap-2 mb-10">
         {LEVEL_DESCRIPTIONS.map(({ level, label }) => (
           <div key={level} className="flex items-center gap-2">
-            <span className={`text-[0.6rem] font-bold px-1.5 py-0.5 rounded ${levelColors[level]}`}>
-              {level}
-            </span>
+            <LevelDots level={level} />
+            <span className="text-[0.6rem] font-bold text-[#8c8279]">{level}</span>
             <span className="text-xs text-[#8c8279]">{label}</span>
           </div>
         ))}
@@ -48,10 +55,8 @@ export const SkillsSection = () => {
                   <span className="text-[0.7rem] font-bold text-[#4a3f35] text-center leading-tight">
                     {skill.name}
                   </span>
-                  <div className="flex items-center gap-1">
-                    <span className={`text-[0.6rem] font-bold px-1.5 py-0.5 rounded ${levelColors[skill.level]}`}>
-                      {skill.level}
-                    </span>
+                  <div className="flex items-center gap-1.5">
+                    <LevelDots level={skill.level} />
                     <span className="text-[0.6rem] text-[#8c8279]">{skill.years}</span>
                   </div>
                 </div>
