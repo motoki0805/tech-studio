@@ -23,10 +23,9 @@ export const WorkCard = ({ work }: WorkCardProps) => {
       <CardBase
         onClick={() => setIsOpen(true)}
         className="bg-white border-gray-100 hover:bg-white p-6"
+        accentColor="bg-[#b17a5c]"
         aria-label={`View details for ${work.title}`}
       >
-        <div className="absolute left-0 top-6 bottom-6 w-1 rounded-r-full bg-[#b17a5c]" />
-
         <div className="pl-3 h-full flex flex-col">
           <div>
             <div className="flex items-center gap-2 text-gray-900 font-semibold text-lg mb-2">

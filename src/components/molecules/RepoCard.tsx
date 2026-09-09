@@ -42,12 +42,9 @@ export const RepoCard = ({
       <CardBase
         onClick={() => setIsOpen(true)}
         className="bg-white border-gray-100 hover:bg-white"
+        accentColor="bg-[#b17a5c]"
         aria-label={`View details for ${repo.name} repository`}
       >
-        <div
-          className={`absolute left-0 top-6 bottom-6 w-1 rounded-r-full ${languageColor}`}
-        />
-
         {/* タイトルエリア */}
         <div className="flex items-center gap-2 text-gray-900 font-semibold text-lg mb-2 pl-3">
           <FaGithub className="text-xl shrink-0" />

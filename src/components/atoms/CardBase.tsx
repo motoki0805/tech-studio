@@ -4,6 +4,8 @@ type CardBaseProps = {
   children: ReactNode;
   onClick?: () => void;
   className?: string;
+  /** 左端に表示する縦のアクセントバー。Tailwindの背景色クラスを渡す */
+  accentColor?: string;
   "aria-label"?: string;
 };
 
@@ -11,6 +13,7 @@ export const CardBase = ({
   children,
   onClick,
   className = "",
+  accentColor,
   ...props
 }: CardBaseProps) => {
   const baseClasses =
@@ -29,6 +32,11 @@ export const CardBase = ({
       type={Component === "button" ? "button" : undefined}
       {...props}
     >
+      {accentColor && (
+        <div
+          className={`absolute left-0 top-6 bottom-6 w-1 rounded-r-full ${accentColor}`}
+        />
+      )}
       {children}
     </Component>
   );
