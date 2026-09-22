@@ -1,63 +1,62 @@
-# Tech Studio (テック工房) - ポートフォリオサイト
+# Tech Studio（テック工房）
 
-愛知県を拠点に活動するフリーランスエンジニア、七島 茂輝 (motoki0805) の公式ポートフォリオ兼、最新技術の実証実験用Webアプリケーションです。
+ポートフォリオサイトです。
+新しいバージョンの技術を実務に入れる前に試す場も兼ねています。
 
-## 成果物URL
-- **本番サイト:** `https://tech-studio.jp `
-- **GitHub:** `https://github.com/motoki0805/tech-studio`
+- サイト: https://tech-studio.jp
+- リポジトリ: https://github.com/motoki0805/tech-studio
 
----
+## 概要
 
-## プロジェクト概要
-本プロジェクトは、自身のスキルセット、実務実績（Works）、およびGitHub上のパブリックな活動（Portfolio）を統合して伝えるために構築した、個人開発のWebアプリケーションです。
-単に静的な情報を並べるだけでなく、**「実用性」**と**「運用のしやすさ」**、そして**「変化の激しいモダンフロントエンド技術の積極的なキャッチアップ」**を体現する成果物として開発しました。
+スキル、実務経歴（Works）、GitHubの公開リポジトリ（Portfolio）を1ページにまとめています。
 
-### 開発期間・担当
-- **開発期間:** 2025年12月 〜 2026年01月 ※修正・アップデートを継続中
-- **所要時間:** 40時間程度
-- **担当範囲:** 企画、デザイン（UI/UX）、フロントエンド、バックエンド（Server Actions）、インフラ選定・デプロイ
+- 開発期間: 2025年12月〜（現在も更新中）
+- 担当: 企画、UI設計、フロントエンド、バックエンド（Server Actions）、デプロイまで個人開発
 
----
+## 技術構成
 
-## 技術スタック ＆ 選定理由
+メジャーアップデート直後のバージョンを選んでいます。実務に持ち込む前に一度自分で触っておきたかったためです。
 
-あえて現在の最先端かつメジャーアップデート直後の技術を積極的に採用し、実務で即座にスケールできる技術選定を行っています。
-
-| 分類 | 技術スタック | 選定理由・メリット |
+| 分類 | 使用技術 | 採用理由 |
 | :--- | :--- | :--- |
-| **Framework** | **Next.js 16 (App Router)** | フルスタックな機能、SEO最適化、Server Actionsによる安全でシームレスなAPI隠蔽。 |
-| **Library** | **React 19 / React-DOM 19** | **React Compiler**（`reactCompiler: true`）を活用し、`useMemo`や`useCallback`を手動で書くことなく、描画パフォーマンスを自動で最適化。 |
-| **Styling** | **Tailwind CSS v4** | 最新のCSSベース構成（`@import "tailwindcss"`）を採用。ビルド速度が格段に向上し、モダンなテーマ定義（`@theme inline`）による効率的なスタイル管理を実現。 |
-| **Language** | **TypeScript 5.x** | 厳格な型定義（`strict: true`）による、ランタイムエラーの徹底排除と開発効率の向上。 |
-| **Markdown** | **React Markdown系エコシステム** | `remark-gfm` / `rehype-raw` / `rehype-sanitize` を組み合わせ、GitHubから取得した生マークダウンを安全かつ美しくレンダリング。 |
-| **Analysis** | **@next/bundle-analyzer** | Webpackビルド時のバンドルサイズを可視化し、初期読み込み速度（LCP）を常に意識した軽量な設計を維持。 |
+| Framework | Next.js 16 (App Router) | Server Actions を使えば、GitHubのトークンをクライアントに出さずにAPIを叩ける |
+| Library | React 19 | React Compiler（`reactCompiler: true`）を有効化し、`useMemo` / `useCallback` を手書きしない構成を試したかった |
+| Styling | Tailwind CSS v4 | CSSファーストの構成（`@import "tailwindcss"` と `@theme inline`）を試すため |
+| Language | TypeScript 5.x | `strict: true` |
+| Markdown | react-markdown / remark-gfm / rehype-raw / rehype-sanitize | GitHubから取得した生のMarkdownを表示するため。HTMLは rehype-sanitize で落とす |
+| 計測 | @next/bundle-analyzer | バンドルサイズの確認用（`npm run analyze`） |
 
----
+## 実装メモ
 
-## 技術的な工夫と「こだわり」の機能
+### GitHub APIからREADMEをオンデマンドで取得する
 
-コードの設計において、特に技術力をアピールできる4つのハイライトです。
+Portfolioセクションでは、自分の公開リポジトリを更新順に6件表示しています。
 
-### 1. Server Actions × GitHub API によるオンデマンドREADME取得
-- **概要:** 「Portfolio」セクションでは、GitHub API経由で自身の公開リポジトリ最新6件を動的に取得しています。
-- **UXの工夫:** 初期表示の通信負荷を減らすため、各リポジトリの `README.md` の中身は、ユーザーが**「カードをクリックしてモーダルを開いた瞬間」**に初めてServer Actions（`fetchReadme`）を叩いてオンデマンドで取得する設計にしています。
+各リポジトリのREADMEは、カードを開いた時点で初めて Server Action（`fetchReadme`）を呼びます。
+初期表示の時点で6件分のREADMEまで取ってくると重くなるためです。
 
-### 2. マークダウン内の「相対画像パス」自動補完ロジック
-- **概要:** 外部（GitHub）から取得したREADME内に `./image.png` のような相対パスで画像が埋め込まれている場合、そのままでは自サイト内で画像が割れてしまいます。
-- **実装:** `RepoModal.tsx` 内で `ReactMarkdown` の `components` オプションを拡張し、画像URLが相対パスだった場合に自動でGitHubのRawデータURL（`https://raw.githubusercontent.com/...`）へ置換・復元するロジックを自作。さらに `next/image` と組み合わせることで、外部画像でありながら最適化（Lazy Load等）された表示を実現しています。
+### README内の相対パス画像を補完する
 
-### 3. 実用的なコンポーネント設計とアクセシビリティ
-- **Atomic Designの思想:** コンポーネントを `atoms`, `molecules`, `organisms`, `templates` に適切に分離。再利用性と見通しの良さを両立しています。
-- **UX/アクセシビリティへの配慮:**
-  - モーダル展開時に背面スクロールを固定するカスタムフック（`useBodyScrollLock`）を自作し、スクロールバーの消失による画面のガタつき（レイアウトシフト）を防ぐためのピクセル計算を導入。
-  - `role="dialog"` や `aria-modal="true"` など、スクリーンリーダーを意識したHTML設計。
+GitHubのREADMEには `./image.png` のような相対パスで画像が書かれていることがあり、そのまま描画すると画像が壊れます。
 
-### 4. 環境変数による「メンテナンスモード」切り替え
-- `NEXT_PUBLIC_IS_MAINTENANCE="true"` の環境変数一枚で、サイト全体を即座に「Coming Soon（準備中）」のテンプレート画面へと切り替えられる、実運用を想定した運用保守機能を備えています。
+`RepoModal.tsx` で ReactMarkdown の `components` を差し替え、相対パスだった場合に `raw.githubusercontent.com` のURLへ組み立て直しています。
+`next/image` を経由するので、外部の画像でも遅延読み込みが効きます。
 
----
+### コンポーネントの分割
 
-## UI/UXデザインのコンセプト
+`atoms` / `molecules` / `organisms` / `templates` で分けています。
 
-- **アースカラーを基調とした親しみやすさ:** `#4a3f35`（深みのあるブラウン）や `#b17a5c`（テラコッタ）といった温かみのある色彩を採用し、「テック工房」という親しみやすくもプロフェッショナルな職人気質を表現。
-- **レスポンシブの徹底:** デスクトップでは洗練されたナビゲーション、モバイルではスムーズなハンバーガーメニューアニメーション（`tailwindcss-animate` を使用）へと切り替わるストレスフリーな設計。
+モーダルは、開いている間だけ背面のスクロールを止めるカスタムフック（`useBodyScrollLock`）を使っています。
+単に `overflow: hidden` にするとスクロールバーが消えて横幅が変わり、画面がガタつくので、消えた分を `padding-right` で補っています。
+モーダル自体には `role="dialog"` と `aria-modal` を付与しています。
+
+### メンテナンスモード
+
+`NEXT_PUBLIC_IS_MAINTENANCE=true` にすると、全ページが準備中の画面に切り替わります。
+公開後に手を入れるときのための仕組みです。
+
+## デザイン
+
+`#4a3f35`（ブラウン）と `#b17a5c`（テラコッタ）を軸にしたアースカラーでまとめています。「工房」という屋号に合わせました。
+
+ナビゲーションはデスクトップでは横並び、モバイルではハンバーガーメニューに切り替わります。
